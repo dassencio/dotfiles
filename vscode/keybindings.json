@@ -181,7 +181,8 @@
     },
     {
         "key": "ctrl+shift+left",
-        "command": "cursorWordStartLeftSelect"
+        "command": "cursorWordStartLeftSelect",
+        "when": "textInputFocus"
     },
     {
         "key": "ctrl+shift+left",
@@ -193,7 +194,8 @@
     },
     {
         "key": "ctrl+shift+right",
-        "command": "cursorWordEndRightSelect"
+        "command": "cursorWordEndRightSelect",
+        "when": "textInputFocus"
     },
     {
         "key": "ctrl+shift+right",
