@@ -48,7 +48,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 # Make sure no Python virtual environment is initially active.
 unset VIRTUAL_ENV
 
-# If a Python virtual environment is detected on the c.w.d., activate it.
+# If a Python virtual environment is detected in the c.w.d., activate it.
 activate_venv() {
   if [ -z "$VIRTUAL_ENV" ] && [ -d ".venv" ]
   then
@@ -172,7 +172,7 @@ fi
 # Only give yourself read/write permissions on all files you create.
 umask 077
 
-# Select the tandard pager.
+# Select the standard pager.
 export PAGER="less"
 
 # Disable less history.
