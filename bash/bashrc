@@ -1,0 +1,197 @@
+# If not running interactively, do nothing.
+case $- in
+  *i*) ;;
+  *) return;;
+esac
+
+
+################################################################################
+#
+#  ALIASES
+#
+################################################################################
+
+alias ..='cd ..'
+alias cd..='cd ..'
+alias cd.='cd ..'
+alias create-virtual-env='python3 -m venv --copies .venv'
+alias diff='diff -u --color=always'
+alias gg='git gui'
+alias grep='grep --color=auto'
+alias l='ls -1'
+alias ll='ls -l'
+alias lla='ls -la'
+alias llh='ls -lh'
+alias ls='ls --color=auto'
+alias octave='octave-cli'
+alias sl='ls'
+
+case "$OSTYPE" in
+  darwin*)
+    alias sed=gsed
+    ;;
+  linux*)
+    alias xt='xfce4-terminal --working-directory="$(pwd)" &'
+    ;;
+esac
+
+
+################################################################################
+#
+#  PYTHON VIRTUAL ENVIRONMENTS
+#
+################################################################################
+
+# Do not allow Python virtual environments to modify the shell prompt.
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+# Make sure no Python virtual environment is initially active.
+unset VIRTUAL_ENV
+
+# If a Python virtual environment is detected on the c.w.d., activate it.
+activate_venv() {
+  if [ -z "$VIRTUAL_ENV" ] && [ -d ".venv" ]
+  then
+    source .venv/bin/activate
+  fi
+}
+
+
+################################################################################
+#
+#  COMMAND HISTORY
+#
+################################################################################
+
+# Set the command history file; use "unset HISTFILE" to disable history.
+export HISTFILE="$HOME/.bash_history"
+
+# Do not allow two equal commands to appear on the command history.
+export HISTCONTROL=ignoreboth
+
+# Number of commands to remember (0 disables history).
+export HISTSIZE=500
+
+# Append to the command history file (do not overwrite it).
+shopt -s histappend
+
+
+################################################################################
+#
+#  MAN PAGES
+#
+################################################################################
+
+# Colorize man pages.
+man() {
+  local command="command"
+  if which firejail > /dev/null
+  then
+    command="firejail --quiet"
+  fi
+  LESS_TERMCAP_md=$'\e[01;36m' \
+  LESS_TERMCAP_me=$'\e[0m' \
+  LESS_TERMCAP_se=$'\e[0m' \
+  LESS_TERMCAP_so=$'\e[01;44;33m' \
+  LESS_TERMCAP_ue=$'\e[0m' \
+  LESS_TERMCAP_us=$'\e[01;32m' \
+  $command man $@
+}
+
+
+################################################################################
+#
+#  SHELL PROMPT STYLE
+#
+################################################################################
+
+# Output the active git branch on the c.w.d. (if applicable).
+git_branch() {
+  local branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+  if [ -n "$branch" ]
+  then
+    echo "|$branch"
+  fi
+}
+
+# Output the name of the active Python virtual environment (if applicable).
+virtual_env() {
+  if [ -n "$VIRTUAL_ENV" ]
+  then
+    echo "|$(basename "$(dirname $VIRTUAL_ENV)")"
+  fi
+}
+
+# Print an error message when the last executed command failed.
+status_code() {
+  local bred=$(echo -e "\e[1;31m")
+  local normal=$(echo -e "\e[m")
+  if [ $1 -ne 0 ]
+  then
+    echo "---------------------"
+    if [ "$OSTYPE" = "linux-gnu" ]
+    then
+      echo -e "Exit status code: ${bred}$1${normal}"
+    else
+      echo -e "Exit status code: $1"
+    fi
+  fi
+}
+
+# Command to be executed every time a new prompt is displayed.
+PROMPT_COMMAND='status_code $?; activate_venv'
+
+# Decoration variables for the shell prompt (a "B" prefix stands for "bold").
+PS1_WHITE="\[\e[0;0m\]"
+PS1_RED="\[\e[0;31m\]"
+PS1_GREEN="\[\e[0;32m\]"
+PS1_BRED="\[\e[1;31m\]"
+PS1_BGREEN="\[\e[1;32m\]"
+PS1_BYELLOW="\[\e[1;33m\]"
+PS1_BCYAN="\[\e[1;36m\]"
+
+# Text displayed on the terminal titlebar.
+TITLEBAR="\[\033]0;\u@\h:\w\a\]"
+
+# Shell prompt style.
+PS1="${TITLEBAR}${PS1_GREEN}\u@\h${PS1_BRED}:\w${PS1_BGREEN}\$(git_branch)${PS1_BYELLOW}\$(virtual_env)${PS1_WHITE}$ "
+
+
+################################################################################
+#
+#  OTHER
+#
+################################################################################
+
+# Enable programmable completion features.
+if [ -f /etc/bash_completion ] && ! shopt -oq posix
+then
+  . /etc/bash_completion
+fi
+
+# Only give yourself read/write permissions on all files you create.
+umask 077
+
+# Select the tandard pager.
+export PAGER="less"
+
+# Disable less history.
+export LESSHISTFILE=/dev/null
+
+# Keep background jobs alive when the shell exits.
+shopt -u huponexit
+
+# Disable Ctrl+S on the terminal (default behavior: pause output).
+stty -ixon
+
+case "$OSTYPE" in
+  darwin*)
+    # Do not display a banner recommending zsh as the default shell.
+    export BASH_SILENCE_DEPRECATION_WARNING=1
+
+    # Enable colorized output for ls command.
+    export CLICOLOR=1
+    ;;
+esac
+
+export PATH=~/Documents/Tools:~/.npm-global/bin:./node_modules/.bin:$PATH
