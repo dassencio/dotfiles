@@ -17,3 +17,4 @@ esac
 
 ln -fsv "$PWD/vscode/keybindings.json" "$vscode_dir/keybindings.json"
 ln -fsv "$PWD/bash/bashrc" "$HOME/.bashrc"
+ln -fsv "$PWD/git/gitconfig" "$HOME/.gitconfig"

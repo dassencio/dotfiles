@@ -1,0 +1,33 @@
+[user]
+name = Diego Assencio
+email = diego@assencio.com
+
+[color "diff"]
+
+[diff]
+renamelimit = 200
+
+[log]
+decorate = true
+
+[alias]
+br = branch
+cane = commit --amend --no-edit
+co = checkout
+fix = !git add . && git cane && git pf
+ls = ls-files
+pf = push --force
+pom = push origin main
+pomfo = pom --force
+prb = pull --rebase
+rb = rebase
+rbc = rebase --continue
+rh = reset --hard
+st = status
+unstage = reset HEAD --
+
+[filter "lfs"]
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+required = true
