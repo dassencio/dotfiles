@@ -24,4 +24,5 @@ create_symlink() {
 
 create_symlink "$PWD/bash/bashrc" "$HOME/.bashrc"
 create_symlink "$PWD/git/gitconfig" "$HOME/.gitconfig"
+create_symlink "$PWD/vim/vimrc" "$HOME/.vimrc"
 create_symlink "$PWD/vscode/keybindings.json" "$vscode_dir/keybindings.json"

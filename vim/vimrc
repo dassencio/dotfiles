@@ -1,0 +1,126 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"  MAIN SETTINGS
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Behave like an MS-Windows editor.
+behave mswin
+
+" Fix syntax highlighting when running inside Byobu.
+set background=dark
+
+" Make backspace work the usual way.
+set backspace=2
+
+" Draw a vertical line at 80 characters.
+set colorcolumn=80
+
+" Underline the current line number (but not the line itself).
+set cursorline
+highlight CursorLine cterm=NONE
+
+" Disable blinking cursor.
+set guicursor+=n-v-c:blinkon0
+
+" Highlight all search results.
+set hlsearch
+
+" Highlight search results as you type.
+set incsearch
+
+" Enable mouse in all modes.
+set mouse=a
+
+" Show line numbers.
+set nu
+
+" Show the cursor position on the statusline.
+set ruler
+
+" Open new vertical splits to the right.
+set splitright
+
+" Set the size of Tab (in spaces).
+set ts=2
+
+" Activate syntax highlighting.
+syntax on
+
+" Prevent <Esc> from moving the cursor to the left in insert mode.
+let CursorColumnI = 0
+autocmd InsertEnter * let CursorColumnI = col('.')
+autocmd CursorMovedI * let CursorColumnI = col('.')
+autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"  KEYBOARD SHORTCUTS
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Select all.
+noremap <C-a> ggVG
+inoremap <C-a> <Esc>ggVG
+
+" Copy selected text.
+vnoremap <C-c> y<Esc>i
+
+" Delete the current line (without copying it).
+noremap <C-d> "_dd
+inoremap <C-d> <Esc>"_ddi
+
+" Search.
+nnoremap <C-f> :nohlsearch<CR>/
+inoremap <C-f> <Esc>:nohlsearch<CR>/
+
+" Open a new tab.
+noremap <C-n> :tabnew<CR>i
+inoremap <C-n> <Esc>:tabnew<CR>i
+
+" Open a file using the file browser.
+noremap <C-o> :Explore<CR>
+inoremap <C-o> <Esc>:Explore<CR>
+
+" Reload vim settings from ~/.vimrc.
+noremap <silent> <C-p> :source ~/.vimrc<CR>:echo "Reloaded VIM configuration"<CR>:sleep 400m<CR>:echo ""<CR>
+inoremap <silent> <C-p> <Esc>:source ~/.vimrc<CR><Esc>:echo "Reloaded VIM configuration"<CR><Esc>:sleep 400m<CR>i
+
+" Redo.
+inoremap <C-r> <Esc><C-r>
+
+" Save changes to file.
+noremap <silent> <C-s> :write<CR>:sleep 400m<CR>:echo<CR>
+inoremap <silent> <C-s> <Esc>:write<CR><Esc>:sleep 400m<CR>i
+
+" Paste clipboard contents.
+inoremap <C-v> <Esc>pi
+
+" Close current tab.
+noremap <silent> <C-w> :quit<CR>
+inoremap <silent> <C-w> <Esc>:quit<CR>
+
+" Cut selected text.
+vnoremap <C-x> d<Esc>i
+
+" Undo.
+noremap <C-z> u
+inoremap <C-z> <Esc>ui
+
+" Split editor vertically.
+noremap <silent> <C-\> :vnew<CR>i
+inoremap <silent> <C-\> <Esc>:vnew<CR>i
+
+" Split editor horizontally.
+noremap <silent> <C-_> :new<CR>i
+inoremap <silent> <C-_> <Esc>:new<CR>i
+
+" Delete previous word when pressing <Ctrl> + <Backspace>.
+noremap <C-h> i<C-w>
+
+" Enter insert mode when pressing the <Return> key.
+nnoremap <CR> i
+
+" Make <Del> only delete a character instead of cutting it.
+noremap <Del> "_d
