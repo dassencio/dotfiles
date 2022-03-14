@@ -1,0 +1,8 @@
+{
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.renderWhitespace": "all",
+    "explorer.confirmDragAndDrop": false,
+    "git.confirmSync": false,
+    "telemetry.telemetryLevel": "off",
+    "workbench.colorTheme": "Visual Studio Light",
+}
