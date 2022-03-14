@@ -15,6 +15,13 @@ case "$OSTYPE" in
     ;;
 esac
 
-ln -fsv "$PWD/bash/bashrc" "$HOME/.bashrc"
-ln -fsv "$PWD/git/gitconfig" "$HOME/.gitconfig"
-ln -fsv "$PWD/vscode/keybindings.json" "$vscode_dir/keybindings.json"
+create_symlink() {
+  local source_file="$1"
+  local link_name="$2"
+  mkdir -p "$(dirname "$link_name")"
+  ln -fsv "$source_file" "$link_name"
+}
+
+create_symlink "$PWD/bash/bashrc" "$HOME/.bashrc"
+create_symlink "$PWD/git/gitconfig" "$HOME/.gitconfig"
+create_symlink "$PWD/vscode/keybindings.json" "$vscode_dir/keybindings.json"
