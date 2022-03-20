@@ -4,5 +4,13 @@
     "explorer.confirmDragAndDrop": false,
     "git.confirmSync": false,
     "telemetry.telemetryLevel": "off",
+    "workbench.colorCustomizations": {
+        "terminal.ansiBrightGreen": "#00D900",
+        "terminal.ansiBrightRed": "#ce0000",
+        "terminal.ansiGreen": "#00A600",
+        "terminal.ansiRed": "#970000",
+        "terminal.background": "#000000",
+        "terminal.foreground": "#bfbfbf",
+    },
     "workbench.colorTheme": "Visual Studio Light",
 }
