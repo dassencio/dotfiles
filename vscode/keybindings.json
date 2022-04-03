@@ -286,7 +286,7 @@
 
     /***************************************************************************
      *
-     *  BOOKMARKS (EXTENSION)
+     *  EXTENSIONS
      *
      **************************************************************************/
 
@@ -301,5 +301,9 @@
     {
         "key": "ctrl+shift+b",
         "command": "bookmarks.jumpToNext"
+    },
+    {
+        "key": "ctrl+g ctrl+h",
+        "command": "githd.viewHistory"
     }
 ]
