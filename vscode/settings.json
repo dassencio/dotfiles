@@ -1,6 +1,7 @@
 {
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.codeLens": false,
+    "editor.minimap.enabled": false,
     "editor.renderWhitespace": "all",
     "explorer.confirmDragAndDrop": false,
     "git.confirmSync": false,
