@@ -280,7 +280,7 @@
     "command": "workbench.action.terminal.paste"
   },
   {
-    "key": "ctrl+'",
+    "key": "ctrl+[Quote]",
     "command": "workbench.action.terminal.toggleTerminal"
   },
 
