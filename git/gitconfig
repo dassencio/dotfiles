@@ -12,10 +12,12 @@ decorate = true
 
 [alias]
 br = branch
+ca = commit --amend
 cane = commit --amend --no-edit
 co = checkout
 fix = !git add . && git cane && git pf
 ls = ls-files
+p = push
 pf = push --force
 pom = push origin main
 pomfo = pom --force
