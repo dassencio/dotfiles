@@ -4,10 +4,10 @@ cd "$(dirname "$0")"
 
 case "$OSTYPE" in
   darwin*)
-    vscode_dir="$HOME/Library/Application Support/Code/User"
+    os_name="macos"
     ;;
   linux*)
-    vscode_dir="$HOME/.config/Code/User"
+    os_name="linux"
     ;;
   *)
     echo "Operating system is not supported."
@@ -22,8 +22,13 @@ create_symlink() {
   ln -fsv "$source_file" "$link_name"
 }
 
+declare -A vscode_dir=(
+  [linux]="$HOME/.config/Code/User"
+  [macos]="$HOME/Library/Application Support/Code/User"
+)
+
 create_symlink "$PWD/bash/bashrc" "$HOME/.bashrc"
 create_symlink "$PWD/git/gitconfig" "$HOME/.gitconfig"
 create_symlink "$PWD/vim/vimrc" "$HOME/.vimrc"
-create_symlink "$PWD/vscode/keybindings.json" "$vscode_dir/keybindings.json"
-create_symlink "$PWD/vscode/settings.json" "$vscode_dir/settings.json"
+create_symlink "$PWD/vscode/keybindings.json" "${vscode_dir[$os_name]}/keybindings.json"
+create_symlink "$PWD/vscode/settings.json" "${vscode_dir[$os_name]}/settings.json"
