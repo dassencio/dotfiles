@@ -30,5 +30,7 @@ declare -A vscode_dir=(
 create_symlink "$PWD/bash/bashrc" "$HOME/.bashrc"
 create_symlink "$PWD/git/gitconfig" "$HOME/.gitconfig"
 create_symlink "$PWD/vim/vimrc" "$HOME/.vimrc"
-create_symlink "$PWD/vscode/keybindings.json" "${vscode_dir[$os_name]}/keybindings.json"
-create_symlink "$PWD/vscode/settings.json" "${vscode_dir[$os_name]}/settings.json"
+create_symlink "$PWD/vscode/keybindings-${os_name}.json" \
+               "${vscode_dir[$os_name]}/keybindings.json"
+create_symlink "$PWD/vscode/settings.json" \
+               "${vscode_dir[$os_name]}/settings.json"
