@@ -15,5 +15,5 @@
     "terminal.background": "#000000",
     "terminal.foreground": "#bfbfbf",
   },
-  "workbench.colorTheme": "Visual Studio Light",
+  "window.autoDetectColorScheme": true
 }
