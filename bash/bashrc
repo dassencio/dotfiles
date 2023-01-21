@@ -194,4 +194,4 @@ case "$OSTYPE" in
     ;;
 esac
 
-export PATH=~/Documents/Tools:~/.npm-global/bin:./node_modules/.bin:$PATH
+export PATH=~/Projects/tools:~/.npm-global/bin:./node_modules/.bin:$PATH
