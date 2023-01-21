@@ -46,6 +46,11 @@
     "when": "editorTextFocus && !editorReadonly"
   },
   {
+    "key": "ctrl+t",
+    "command": "-editor.action.transposeLetters",
+    "when": "textInputFocus && !editorReadonly"
+  },
+  {
     "key": "shift+cmd+r",
     "command": "workbench.action.replaceInFiles"
   },
