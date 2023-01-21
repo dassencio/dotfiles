@@ -4,6 +4,7 @@
   "editor.inlineSuggest.enabled": true,
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "all",
+  "editor.tabSize": 2,
   "explorer.confirmDragAndDrop": false,
   "git.confirmSync": false,
   "telemetry.telemetryLevel": "off",
