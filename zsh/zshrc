@@ -32,6 +32,7 @@ activate_venv() {
   fi
 }
 
+# Function which is executed before each prompt.
 precmd() {
   local status_code=$?
   if [ $status_code -ne 0 ]
@@ -95,7 +96,7 @@ source "$HOMEBREW_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 #
 ###############################################################################
 
-# Remind me when it's time to update oh-my-zsh.
+# Remind me when it's time to update Oh My Zsh.
 zstyle ':omz:update' mode reminder
 zstyle ':omz:update' frequency 13
 
