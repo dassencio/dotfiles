@@ -58,7 +58,7 @@ alias gg='git gui'
 alias ls='gls --color=tty'
 alias octave='octave-cli'
 alias reload='source ~/.zshrc'
-alias sed=gsed
+alias sed='gsed'
 
 # Derived aliases.
 alias l1='ls -1'
