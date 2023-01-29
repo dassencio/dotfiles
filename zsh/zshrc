@@ -1,6 +1,3 @@
-export HOMEBREW_DIR="/opt/homebrew/share"
-
-
 ###############################################################################
 #
 #  OH MY ZSH
@@ -87,7 +84,7 @@ man() {
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 
-source "$HOMEBREW_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 
 ###############################################################################
