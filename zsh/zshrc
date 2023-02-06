@@ -51,10 +51,12 @@ precmd() {
 alias create-virtual-env='python3 -m venv --copies .venv'
 alias diff='diff -u --color=always'
 alias dircolors='gdircolors'
+alias ds='echo $(find . -type f | wc -l) files, $(find . -type d | wc -l) subdirs'
 alias gg='git gui'
 alias ls='gls --color=tty'
 alias octave='octave-cli'
 alias reload='source ~/.zshrc'
+alias sds='find . -maxdepth 1 -type d -exec du -shm {} \; | sort -nr'
 alias sed='gsed'
 
 # Derived aliases.
