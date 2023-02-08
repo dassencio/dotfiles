@@ -103,6 +103,9 @@ zstyle ':omz:update' frequency 13
 eval "$(dircolors)"
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
+# Autocomplete ssh hosts listed in ~/.ssh/config.
+zstyle ':completion:*:ssh:*' hosts
+
 
 ###############################################################################
 #
