@@ -58,6 +58,7 @@ alias octave='octave-cli'
 alias reload='source ~/.zshrc'
 alias sds='find . -maxdepth 1 -type d -exec du -shm {} \; | sort -nr'
 alias sed='gsed'
+alias seq='gseq'
 
 # Derived aliases.
 alias l1='ls -1'
