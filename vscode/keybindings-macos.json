@@ -26,6 +26,10 @@
     "when": "editorFocus || editorIsOpen"
   },
   {
+    "key": "cmd+y",
+    "command": "editor.emmet.action.wrapWithAbbreviation"
+  },
+  {
     "key": "cmd+[",
     "command": "workbench.action.navigateBack",
     "when": "canNavigateBack"
