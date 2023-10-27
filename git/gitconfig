@@ -4,6 +4,9 @@ email = diego@assencio.com
 
 [color "diff"]
 
+[core]
+editor="code --wait"
+
 [diff]
 renamelimit = 200
 
