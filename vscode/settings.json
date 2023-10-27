@@ -10,6 +10,9 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "git.confirmSync": false,
+  "github.copilot.enable": {
+    "*": false
+  },
   "telemetry.telemetryLevel": "off",
   "workbench.colorCustomizations": {
     "terminal.ansiBrightGreen": "#00D900",
