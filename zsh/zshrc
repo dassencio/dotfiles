@@ -120,7 +120,16 @@ umask 077
 # Select the standard pager.
 export PAGER="less"
 
-# Disable less history.
+# Disable Gnuplot history file.
+export GNUPLOT_HISTORY=/dev/null
+
+# Disable less history file.
 export LESSHISTFILE=/dev/null
+
+# Disable Node history file.
+export NODE_REPL_HISTORY=/dev/null
+
+# Disable Octave history file.
+export OCTAVE_HISTFILE=/dev/null
 
 export PATH=~/Projects/tools:~/.npm-global/bin:./node_modules/.bin:$PATH
