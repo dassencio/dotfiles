@@ -44,6 +44,9 @@ set splitright
 " Set the size of Tab (in spaces).
 set ts=2
 
+" Do not create a viminfo file.
+set viminfofile=NONE
+
 " Activate syntax highlighting.
 syntax on
 
