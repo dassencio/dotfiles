@@ -24,5 +24,6 @@
     "terminal.background": "#000000",
     "terminal.foreground": "#bfbfbf",
   },
-  "workbench.colorTheme": "Visual Studio Light"
+  "workbench.colorTheme": "Visual Studio Light",
+  "workbench.iconTheme": "material-icon-theme"
 }
