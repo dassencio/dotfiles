@@ -1,5 +1,6 @@
 {
   "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": false,
   "editor.accessibilitySupport": "off",
   "editor.codeLens": false,
   "editor.inlineSuggest.enabled": true,
